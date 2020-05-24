@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Block Party</title>
+<meta charset="utf-8">
+<meta name="title" content="Block Party">
+<meta name="description" content="A clone of the puzzle game Tetris Attack.">
+<meta name="viewport" content="initial-scale=1.0">
+<link href="mailto:jcfields@jcfields.dev" rel="author" title="J.C. Fields">
+<link href="layout/manifest.json" rel="manifest" type="application/json">
+<link href="layout/style.css" media="screen" rel="stylesheet" type="text/css">
+<link href="layout/favicon.png" rel="shortcut icon" type="image/png">
+<link href="layout/homeicon.png" rel="apple-touch-icon-precomposed" type="image/png">
+<script src="puzzle.js" type="text/javascript"></script>
+<base target="_blank"></head>
+<body><header><h1>Block<br>Party</h1></header>
+<main>
+	<noscript><p>Must have JavaScript enabled.</p></noscript>
+	<div id="overlay_pause" class="overlay">Paused</div>
+	<canvas id="well" hidden="hidden"></canvas>
+	<canvas id="cursor" hidden="hidden"></canvas>
+</main>
+<div id="stats">
+	<div id="points"></div>
+	<dl><dt>Time</dt><dd id="time">0:00</dd>
+	<dt>Score</dt><dd id="score">0</dd>
+	<dt>Level</dt><dd id="level">0</dd>
+	<dt>Blocks</dt><dd id="jewels">0</dd></dl>
+</div>
+<div id="controls">
+	<div><button type="button" id="left" disabled="disabled" class="direction">&larr; Left</button></div>
+	<div><button type="button" id="up" disabled="disabled" class="direction">&uarr;<br>Up</button></div>
+	<div><button type="button" id="down" disabled="disabled" class="direction">Down<br>&darr;</button></div>
+	<div><button type="button" id="right" disabled="disabled" class="direction">Right &rarr;</button></div>
+	<div><button type="button" id="swap" disabled="disabled">Swap</button></div>
+</div>
+<div id="menu">
+	<div><button type="button" id="play">Play</button></div>
+	<div><button type="button" id="options" value="options" class="toggle">Options</button></div>
+	<div><button type="button" id="scores" value="scores" class="toggle">Scores</button></div>
+	<div><button type="button" id="reset" disabled="disabled">Reset</button></div>
+</div>
+<div id="overlay_options" class="overlay">
+	<table><tr><th><label for="difficulty">Colors</label></th><td><input type="range" min="4" max="7" value="6" id="difficulty" class="option"></td><td id="showDifficulty" class="show">4</td></tr>
+	<tr><th><label for="start">Level</label></th><td><input type="range" min="1" max="10" value="1" id="start" class="option"></td><td id="showStart" class="show">1</td></tr>
+	<tr><th><label for="height">Height</label></th><td><input type="range" min="0" max="10" value="6" id="height" class="option"></td><td id="showHeight" class="show">0</td></tr>
+	<tr><th>Mode</th><td><label><input type="radio" value="0" name="mode" id="standard" class="option" checked="checked">&nbsp;Standard</label> <label><input type="radio" value="1" name="mode" id="timeAttack" class="option">&nbsp;Time Attack</label></td><td></td></tr></table>
+	<div><button type="button" value="options" class="close">Close</button></div>
+</div>
+<div id="overlay_scores" class="overlay">
+	<div id="select"><div><label>Mode:&nbsp;<select id="mode"><option value="0" selected="selected">Standard</option><option value="1">Time Attack</option></select></label></div>
+	<div><label>Colors:&nbsp;<select id="colors"><option>4</option><option>5</option><option selected="selected">6</option><option>7</option></select></label></div></div>
+	<table></table>
+	<div><button type="button" value="scores" class="close">Close</button></div>
+</div>
+<div id="overlay_gameover" class="overlay">
+	<div id="gameover">Game Over</div>
+	<table></table>
+	<div id="prompt" hidden="hidden">
+		<div>You&rsquo;ve set a new high score!</div>
+		<div><input type="text" maxlength="20" placeholder="Your name"></div>
+		<div><button type="button">Submit</button></div>
+	</div>
+</div>
+<footer>
+	<div id="author">Created by <a href="mailto:jcfields@jcfields.dev">J.C. Fields</a>.</div>
+	<div id="hosted">Hosted by <a href="https://github.com/jcfieldsdev/block-party">GitHub</a>.</div>
+</footer></body></html>
